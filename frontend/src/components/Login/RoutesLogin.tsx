@@ -3,9 +3,9 @@ import { LoginForm } from './LoginForm';
 import { Login } from './Login';
 import { LoginWelcome } from './LoginWelcome';
 import { LoginCriarTCC } from './LoginCriarTCC';
-// import { LoginEntrarTCC } from './LoginEntrarTCC';
-// import { LoginPesquisarTCC } from './LoginPesquisarTCC';
-// import { LoginSolicitacao } from './LoginSolicitacao';
+import { LoginEntrarTCC } from './LoginEntrarTCC';
+import { LoginPesquisarTCC } from './LoginPesquisarTCC';
+import { LoginSolicitacao } from './LoginSolicitacao';
 import styles from './Login.module.css'
 
 export function RoutesLogin() {
@@ -22,11 +22,10 @@ export function RoutesLogin() {
                                 <Route path="/cadastro" element={<LoginForm />} />
                                 <Route path="/bemvindo" element={<LoginWelcome />} />
                                 <Route path="/criartcc" element={<LoginCriarTCC />} />
-                                {/* 
-                                
+                                <Route path="/pesquisartcc" element={<LoginPesquisarTCC />} />
                                 <Route path="/entrartcc" element={<LoginEntrarTCC />} />
                                 <Route path="/solicitacao" element={<LoginSolicitacao />} />
-                                <Route path="/pesquisartcc" element={<LoginPesquisarTCC />} /> */}
+                                 
                             </Routes>
                         </main>
                     </BrowserRouter>

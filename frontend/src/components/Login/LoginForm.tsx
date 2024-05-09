@@ -27,10 +27,6 @@ export function LoginForm() {
     async function gravar(e) {
         e.preventDefault();
 
-    // Atualiza a data de ingresso para a data atual
-    const dataAtual = new Date().toISOString().substr(0, 10);
-    setCadastro({...cadastro, data_ingresso: dataAtual});
-
     const config = {
       headers: {
         'Content-Type': 'application/json',
@@ -53,7 +49,6 @@ export function LoginForm() {
           instituicao: cadastro.instituicao,
           departamento: cadastro.departamento,
           matricula: cadastro.matricula,
-          data_ingresso: cadastro.data_ingresso
         },
         config
       );
