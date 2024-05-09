@@ -8,7 +8,7 @@ export function LoginCriarTCC() {
 
     const [cadastro, setCadastro] = useState({
         name: '', // Valor padrão para 'name'
-        nick_club: '', // Valor padrão para 'nick_club'
+        desc_projeto: '', // Valor padrão para 'desc_projeto'
     });
     const [status, setStatus] = useState('');
     const navigate = useNavigate();
@@ -32,7 +32,7 @@ export function LoginCriarTCC() {
         'http://127.0.0.1:8000/api/club/register',
         {
           name: cadastro.name,
-          nick_club: cadastro.nick_club,
+          desc_projeto: cadastro.desc_projeto,
           user_id: user_id, // Adicione o userId ao corpo da solicitação
         },
         config
@@ -77,14 +77,14 @@ export function LoginCriarTCC() {
                       required/>                        
                     </div>
                     <div className="form-group">
-                        <label htmlFor='endtcc'>Endereço do TCC</label>
+                        <label htmlFor='desc_projeto'>Descrição do Projeto</label>
                         <input 
                             type='text' 
-                            id='endtcc'
-                            placeholder='@klubinho'
-                            value={cadastro.nick_club || ''}
+                            id='desc_projeto'
+                            placeholder=''
+                            value={cadastro.desc_projeto || ''}
                             className='form-control'
-                            onChange={(e) => setCadastro({...cadastro, nick_club:e.target.value})}
+                            onChange={(e) => setCadastro({...cadastro, desc_projeto:e.target.value})}
                             required/>                        
                     </div>
                     <p><a href='/pesquisartcc'>Buscar TCC Existente</a></p>
