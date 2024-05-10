@@ -16,7 +16,7 @@
   }
   
   .buttonPurple {
-    background-color: var(--purple);
+    background-color: var(--red);
     border-radius: 10px;
     color: var(--white);
     border: none;

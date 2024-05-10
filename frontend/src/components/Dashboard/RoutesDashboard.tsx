@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// import { SideBarRight } from '../SideBars/SideBarLeft';
-// import { SideBarLeft } from '../SideBars/SideBarRight';
+// import { SideBarRight } from '../SideBars/SideBarRight';
+import { SideBarLeft } from '../SideBars/SideBarLeft';
 
 import { Dashboard } from './Dashboard';
 import styles from './Dashboard.module.css';
@@ -49,10 +49,10 @@ export function RoutesDashboard() {
                     <div className="row">
                         
                         <div className={`col-md-3 ${styles.sideBarLeft}`}>
-                            <SideBarRight />
+                            <SideBarLeft />
                         </div>
                         
-                            <div className="col-md-5" style={{ maxHeight: '50%', overflowY: 'auto' }}>
+                            <div className="col-md-9" style={{ maxHeight: '50%', overflowY: 'auto' }}>
                                 <div className="row">
                                     <div className="col-md-6 mt-4">
                                         <b>{nameClub.name}</b>
@@ -68,6 +68,7 @@ export function RoutesDashboard() {
                                     <main>
                                         <Routes>
                                             <Route path="/" element={<Dashboard />} />
+                                            {/* 
                                             <Route path="/enquete" element={<Enquete />} />
                                             <Route path="/listenquete" element={<ListEnquete />} />
                                             <Route path="/createenquete" element={<CreateEnquete />} />
@@ -77,15 +78,13 @@ export function RoutesDashboard() {
                                             <Route path="/profile" element={<Profile />} />
                                             <Route path="/editprofile" element={<EditProfile />} />
                                             <Route path="/livros" element={<Livros />} />
-                                            <Route path="/calendario" element={<Calendario />} />
+                                            <Route path="/calendario" element={<Calendario />} /> */}
                                         </Routes>
                                     </main>
                                 
                             </div>
             
-                        <div className="col-md-4" style={{ position: 'sticky', top: 0, height: '100vh' }}>
-                            <SideBarLeft />
-                        </div>
+
                     </div>
                 </div>
             </BrowserRouter>

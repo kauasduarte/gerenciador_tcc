@@ -1,7 +1,7 @@
-//import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { RoutesLogin } from './components/Login/RoutesLogin';
-//import { RoutesDashboard } from './components/Dashboard/RoutesDashboard';
-//import Cookies from 'js-cookie';
+import { RoutesDashboard } from './components/Dashboard/RoutesDashboard';
+import Cookies from 'js-cookie';
 
 import './global.module.css';
 
@@ -34,7 +34,7 @@ function App() {
   // );
 
   return (
-    <RoutesLogin />
+    <RoutesDashboard />
   )
 }
 

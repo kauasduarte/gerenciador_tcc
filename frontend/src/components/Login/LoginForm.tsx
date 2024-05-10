@@ -91,7 +91,6 @@ export function LoginForm() {
 
         <p className={styles.textLogin}>Cadastro</p>
 
-        {/* <form onSubmit={gravar} className={styles.loginForm}> */}
         <form onSubmit={gravar} className={styles.loginForm}>
         <div className="form-group">
             <label htmlFor="tipoInput">Tipo de Usuário:</label>
