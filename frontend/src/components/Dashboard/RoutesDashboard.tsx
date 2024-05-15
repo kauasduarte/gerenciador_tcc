@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { SideBarLeft } from '../SideBars/SideBarLeft';
 
 import { Dashboard } from './Dashboard';
-import styles from './Dashboard.module.css';
+import styles from '../SideBars/SideBarLeft.module.css';
 
 // import { Enquete } from '../Enquete/Enquete';
 // import { CreateEnquete } from '../Enquete/CreateEnquete';
@@ -26,21 +26,21 @@ import Cookies from 'js-cookie';
 
 export function RoutesDashboard() {
 
-    const [nameClub, setNameClub] = useState([]);
-    const club_id = Cookies.get('club_id');
+    // const [nameClub, setNameClub] = useState([]);
+    // const club_id = Cookies.get('club_id');
 
-    useEffect(() => {
-        async function clubName() {
-            try {
-                const response = await axios.get(`http://localhost:8000/api/club/getClubById/${club_id}`);
-                setNameClub(response.data[0]);
-            } catch (error) {
-                console.error(error);
-            }
-        }
+    // useEffect(() => {
+    //     async function clubName() {
+    //         try {
+    //             const response = await axios.get(`http://localhost:8000/api/club/getClubById/${club_id}`);
+    //             setNameClub(response.data[0]);
+    //         } catch (error) {
+    //             console.error(error);
+    //         }
+    //     }
 
-        clubName();
-    }, []);
+    //     clubName();
+    // }, []);
 
     return(
         <>
@@ -48,12 +48,12 @@ export function RoutesDashboard() {
                 <div className="container-fluid">
                     <div className="row">
                         
-                        <div className={`col-md-3 ${styles.sideBarLeft}`}>
+                        <div className={`col-md-2 ${styles.sideBarLeft}`}>
                             <SideBarLeft />
                         </div>
                         
-                            <div className="col-md-9" style={{ maxHeight: '50%', overflowY: 'auto' }}>
-                                <div className="row">
+                            <div className="col-md-10" style={{ maxHeight: '50%', overflowY: 'auto' }}>
+                                {/* <div className="row">
                                     <div className="col-md-6 mt-4">
                                         <b>{nameClub.name}</b>
                                     </div>
@@ -61,8 +61,8 @@ export function RoutesDashboard() {
                                         <a href="#" className="nav-link">
                                         <span className="material-symbols-outlined">notifications</span>
                                         </a>
-                                    </div>*/}
-                                </div>
+                                    </div>}
+                                </div> */}
                                 <hr style={{ borderTop: '2px solid gray' }} />
 
                                     <main>

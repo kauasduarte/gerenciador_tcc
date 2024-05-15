@@ -8,7 +8,7 @@ export function SideBarLeft() {
 
     return(
         <>
-            <div className={`container ${styles.sideBarLeft}`}>
+            <div className={`container`}>
                 <nav className="navbar navbar-expand-md">
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
                         <span className="navbar-toggler-icon"></span>
@@ -19,37 +19,30 @@ export function SideBarLeft() {
                             <span  className={styles.logo}>TCC</span>
 
                             <li className={`nav-item ${styles.menuItem}`}>
-                                <Link className='nav-link' to="/">
-                                    <span className="material-symbols-outlined">home</span>
-                                    <span className='p-2'>Home</span>
+                                <Link className='nav-link d-flex align-items-center' to="/">
+                                    <span className="material-symbols-outlined">checklist</span>
+                                    <span className='p-2'>Tarefas</span>
                                 </Link>
                             </li>
 
                             <li className={`nav-item ${styles.menuItem}`}>
-                                <Link className='nav-link' to="/listenquete">
-                                    <span className="material-symbols-outlined">voting_chip</span>
-                                    <span className='p-2'>Enquete</span>
+                                <Link className='nav-link d-flex align-items-center' to="/membros">
+                                    <span className="material-symbols-outlined">groups</span>
+                                    <span className='p-2'>Membros</span>
                                 </Link>
                             </li>
                             
                             <li className={`nav-item ${styles.menuItem}`}>
-                                <Link className='nav-link' to="/reunion">
-                                    <span className="material-symbols-outlined">article</span>
-                                    <span className='p-2'>Reunião</span>
+                                <Link className='nav-link d-flex align-items-center' to="/avaliacao">
+                                    <span className="material-symbols-outlined">fact_check</span>
+                                    <span className='p-2'>Avaliação</span>
                                 </Link>
                             </li>
 
                             <li className={`nav-item ${styles.menuItem}`}>
-                                <Link className='nav-link' to="/calendario">
-                                    <span className="material-symbols-outlined">calendar_month</span>
-                                    <span className='p-2'>Calendário</span>
-                                </Link>
-                            </li>
-                            
-                            <li className={`nav-item ${styles.menuItem}`}>
-                                <Link className='nav-link' to="/profile">
-                                    <span className="material-symbols-outlined">person</span>
-                                    <span className='p-2'>Perfil</span>
+                                <Link className='nav-link d-flex align-items-center' to="/certificados">
+                                    <span className="material-symbols-outlined">license</span>
+                                    <span className='p-2'>Certificados</span>
                                 </Link>
                             </li>
 
@@ -90,7 +83,7 @@ export function SideBarLeft() {
                                         </a>
                                     </div>
                                 </div>
-                            </li> */}
+                            </li>  */}
                         </ul>
                     </div>
                 </nav> 

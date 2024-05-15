@@ -15,18 +15,12 @@
     padding-left: 20rem;
   }
   
-  .buttonPurple {
+  .buttonRed {
     background-color: var(--red);
     border-radius: 10px;
     color: var(--white);
     border: none;
     padding: 0.5rem;
-}
-
-.sideBarLeft {
-  position: sticky; 
-  top: 0; 
-  height: '100vh';
 }
 
 .customPost {
@@ -58,11 +52,7 @@
     width: 20rem;
     border: none;
   }
-  .sideBarLeft {
-    margin-top: 1rem;
-    margin-bottom: -1rem;
-    margin-left: -3rem;
-  }
+  
   .menu {
     padding-left: 1rem;
   }
