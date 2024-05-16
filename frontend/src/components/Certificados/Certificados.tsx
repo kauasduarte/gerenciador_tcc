@@ -1,18 +1,11 @@
 import { useState, useEffect, ChangeEvent } from 'react';
 import { Link } from "react-router-dom";
-import styles from "./Dashboard.module.css"
+import axios from 'axios';
+import Cookies from 'js-cookie';
+import styles from './Certificados.module.css';
 
-interface Dashboard {
-  id: number;
-  titulo: string;
-  descricao: string;
-  prazo: string;
-  status: boolean;
-}
+export function Certificados() {
 
-
-export function Dashboard() {
-  
 
 
     return (
@@ -24,8 +17,8 @@ export function Dashboard() {
                   <h1>Tarefas</h1>
                 </div>
                 <div>
-                  <Link className="nav-link" to={"/criartarefa"}>
-                    <button>Criar Tarefa</button>
+                  <Link className="nav-link" to={"/certificados"}>
+                    <button>Gerar certificados</button>
                   </Link>
                 </div>
               </div>

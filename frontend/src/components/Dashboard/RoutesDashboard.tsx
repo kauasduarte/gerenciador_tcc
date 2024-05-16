@@ -1,13 +1,12 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// import { SideBarRight } from '../SideBars/SideBarRight';
 import { SideBarLeft } from '../SideBars/SideBarLeft';
 
 import { Dashboard } from './Dashboard';
+import { Membros } from '../Membros/Membros';
+import { Avaliacao } from '../Avaliacao/Avaliacao';
+import { Certificados } from '../Certificados/Certificados';
 import styles from '../SideBars/SideBarLeft.module.css';
-
-// import { Enquete } from '../Enquete/Enquete';
-// import { CreateEnquete } from '../Enquete/CreateEnquete';
 
 // import { Profile } from '../Profile/Profile';
 // import { EditProfile } from '../Profile/EditProfile';
@@ -16,8 +15,6 @@ import styles from '../SideBars/SideBarLeft.module.css';
 // import { Reunion } from '../Reunion/Reunion';
 // import { CreateReunion } from '../Reunion/CreateReunion';
 // import { EditReunion } from '../Reunion/EditReunion';
-
-// import { Livros } from '../Livros/Livros';
 
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
@@ -63,11 +60,14 @@ export function RoutesDashboard() {
                                         </a>
                                     </div>}
                                 </div> */}
-                                <hr style={{ borderTop: '2px solid gray' }} />
+                                {/* <hr style={{ borderTop: '2px solid gray' }} /> */}
 
                                     <main>
                                         <Routes>
                                             <Route path="/" element={<Dashboard />} />
+                                            <Route path="/avaliacao" element={<Avaliacao />} />
+                                            <Route path="/membros" element={<Membros />} />
+                                            <Route path="/certificados" element={<Certificados />} />
                                             {/* 
                                             <Route path="/enquete" element={<Enquete />} />
                                             <Route path="/listenquete" element={<ListEnquete />} />
