@@ -14,7 +14,7 @@ export function Certificados() {
             <div className="row">
               <div className="col-md-12 d-flex justify-content-between align-items-center">
                 <div className={`${styles.titulo}`}>
-                  <h1>Tarefas</h1>
+                  <h1>Certificados</h1>
                 </div>
                 <div>
                   <Link className="nav-link" to={"/certificados"}>

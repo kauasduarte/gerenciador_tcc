@@ -8,13 +8,13 @@ export function LoginForm() {
 
     const [cadastro, setCadastro] = useState({
         tipo_usuario: '',
-        name: '', // Valor padrão para 'name'
-        last_name: '', // Valor padrão para 'last_name'
+        name: '', 
+        last_name: '', 
         cpf: '',
-        birth: '', // Valor padrão para 'last_name'
-        email: '', // Valor padrão para 'email'
-        phone_number: '', // Valor padrão para 'phone_number'
-        password: '', // Valor padrão para 'password'
+        birth: '', 
+        email: '', 
+        phone_number: '', 
+        password: '', 
         curso: '', 
         instituicao: '', 
         departamento: '', 
@@ -103,10 +103,10 @@ export function LoginForm() {
                 required
             >
                 <option value="">Selecione...</option>
-                <option value="Aluno">Aluno</option>
-                <option value="Orientador">Orientador</option>
-                <option value="Banca Avaliadora">Banca Avaliadora</option>
-                <option value="Coordenador">Coordenador</option>
+                <option value='aluno' label="Aluno">Aluno</option>
+                <option value='orientador' label="Orientador">Orientador</option>
+                <option value="banca" label='Banca Avaliadora'>Banca Avaliadora</option>
+                <option value='coordenador' label="Coordenador">Coordenador</option>
             </select>
         </div>
 
