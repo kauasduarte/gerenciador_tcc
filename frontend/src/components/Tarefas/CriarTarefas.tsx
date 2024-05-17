@@ -6,18 +6,11 @@ import { FormEvent, OptionType, CustomMultiValueProps } from '../types';
 
 import styles from '../Dashboard/Dashboard.module.css';
 
-import Select, { MultiValue } from 'react-select';
-
-interface Integrante {
-  name: string;
-  last_name: string;
-}
-
 interface Tarefa {
   titulo?: string;
   descricao?: string;
   documento?: string;
-  status?: string;
+  status?: boolean;
   data_publicacao?: string;
   prazo?: string;
   entrega?: string;
@@ -31,7 +24,6 @@ export function CreateTarefa() {
     // const user_id = Cookies.get('user_id');
     // const club_id = Cookies.get('club_id');
 
-    const [integrantes, setIntegrantes] = useState<Integrante[]>([]);
     const [, setLoading] = useState<boolean>(true);
 
     const [selectedOptions, setSelectedOptions] = useState<OptionType[]>([]);
@@ -91,26 +83,6 @@ export function CreateTarefa() {
     //   }, [club_id]);
 
     //select    
-    const options = integrantes.map((integrante) => ({
-        value: `${integrante.name} ${integrante.last_name}`,
-        label: `${integrante.name} ${integrante.last_name}`,
-      }));
-
-    const handleSelectChange = (selectedValues: MultiValue<OptionType>) => {
-      setSelectedOptions([...selectedValues] || []);
-    };
-
-    const removeOption = (optionToRemove: OptionType) => {
-        const updatedOptions = selectedOptions.filter((option) => option !== optionToRemove);
-        setSelectedOptions(updatedOptions);
-    };
-
-    const customMultiValue = (props: CustomMultiValueProps) => (
-        <div className={`custom-multi-value ${styles.multiValue}`}>
-          {props.children}
-          <span className="remove" onClick={() => removeOption(props.data)}>×</span>
-        </div>
-    );
 
     return(
         <div className="container">
@@ -124,8 +96,8 @@ export function CreateTarefa() {
                       className="form-control" 
                       name="titulo" 
                       placeholder="Título" 
-                      value={reunion.titulo || ''}
-                      onChange={(e) => setReunion({ ...reunion, titulo: e.target.value })}
+                      value={tarefa.titulo || ''}
+                      onChange={(e) => setTarefa({ ...tarefa, titulo: e.target.value })}
                       maxLength={60} 
                       required/>
                 </div>
@@ -139,53 +111,36 @@ export function CreateTarefa() {
                         rows={4} 
                         maxLength={255}
                         style={{ resize: 'none' }}
-                        value={reunion.descricao || ''}
-                        onChange={(e) => setReunion({ ...reunion, descricao: e.target.value })}
+                        value={tarefa.descricao || ''}
+                        onChange={(e) => setTarefa({ ...tarefa, descricao: e.target.value })}
                         required
                     />
                 </div>
 
                 <div className="form-group mt-4">
-                    <label>Link</label>
+                    <label>Documento</label>
                     <input 
-                      type="text" 
+                      type="file" 
                       className="form-control" 
-                      name="link" 
-                      placeholder="Link" 
-                      value={reunion.link || ''}
-                      onChange={(e) => setReunion({ ...reunion, link: e.target.value })} 
+                      name="documento" 
+                      placeholder="" 
+                      value={tarefa.documento || ''}
+                      onChange={(e) => setTarefa({ ...tarefa, documento: e.target.value })} 
                       required
                     />
-                </div>
-
-                <div className="form-group mt-4">
-                    <div className="mt-2">
-                        <p>Participantes:</p>
-                    </div>
-                
-                    <Select
-                        isMulti
-                        options={options}
-                        value={selectedOptions}
-                        name="participants_name"
-                        onChange={handleSelectChange}
-                        components={{ MultiValue: customMultiValue }}
-                        required
-                    />              
                 </div>
 
                 <div className="row mt-4">
                     <div className="form-group col-md-6">
                         <label htmlFor="inputData">Data</label>
                         <input 
-                          type="date" 
-                          className="form-control" 
-                          id="inputHora" 
-                          name="data_reuniao" 
-                          placeholder="Data" 
-                          value={reunion.data_reuniao || ''}
-                          onChange={(e) => setReunion({ ...reunion, data_reuniao: e.target.value })}
-                          required
+                            type="checkbox" 
+                            className="form-control" 
+                            id="status" 
+                            name="status"
+                            checked={!!tarefa.status}
+                            onChange={(e) => setTarefa({ ...tarefa, status: e.target.checked })}
+                            required
                         />
                     </div>
                     <div className="form-group col-md-6">
@@ -197,7 +152,7 @@ export function CreateTarefa() {
                           name="hora_reuniao" 
                           placeholder="Hora" 
                           value={reunion.hora_reuniao || ''}
-                          onChange={(e) => setReunion({ ...reunion, hora_reuniao: e.target.value })} 
+                          onChange={(e) => setTarefa({ ...reunion, hora_reuniao: e.target.value })} 
                           required
                         />
                     </div>
@@ -212,7 +167,7 @@ export function CreateTarefa() {
                           name="livro" 
                           placeholder="Livro" 
                           value={reunion.livro || ''}
-                          onChange={(e) => setReunion({ ...reunion, livro: e.target.value })}
+                          onChange={(e) => setTarefa({ ...reunion, livro: e.target.value })}
                           maxLength={60}
                         />
                     </div>
@@ -224,7 +179,7 @@ export function CreateTarefa() {
                           name="autor" 
                           placeholder="autor" 
                           value={reunion.autor || ''}
-                          onChange={(e) => setReunion({ ...reunion, autor: e.target.value })}
+                          onChange={(e) => setTarefa({ ...reunion, autor: e.target.value })}
                           maxLength={60}
                         />
                     </div>
