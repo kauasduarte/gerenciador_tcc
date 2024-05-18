@@ -7,6 +7,7 @@ import { Membros } from '../Membros/Membros';
 import { Avaliacao } from '../Avaliacao/Avaliacao';
 import { Certificados } from '../Certificados/Certificados';
 import styles from '../SideBars/SideBarLeft.module.css';
+import { CreateTarefa } from '../Tarefas/CriarTarefas'
 
 // import { Profile } from '../Profile/Profile';
 // import { EditProfile } from '../Profile/EditProfile';
@@ -68,6 +69,7 @@ export function RoutesDashboard() {
                                             <Route path="/avaliacao" element={<Avaliacao />} />
                                             <Route path="/membros" element={<Membros />} />
                                             <Route path="/certificados" element={<Certificados />} />
+                                            <Route path='/criartarefa' element={<CreateTarefa />} />
                                             {/* 
                                             <Route path="/enquete" element={<Enquete />} />
                                             <Route path="/listenquete" element={<ListEnquete />} />

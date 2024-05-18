@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import axios from "axios";
 import Cookies from 'js-cookie';
-import { FormEvent, OptionType, CustomMultiValueProps } from '../types';
+import { FormEvent, OptionType } from '../types';
 
 import styles from '../Dashboard/Dashboard.module.css';
 
@@ -19,14 +19,12 @@ interface Tarefa {
 export function CreateTarefa() {
     //salvar
     const [tarefa, setTarefa] = useState<Tarefa>({});
-    const [, setStatus] = useState<string>('');
-    
+    const [, setStatus] = useState<string>('');    
     // const user_id = Cookies.get('user_id');
     // const club_id = Cookies.get('club_id');
-
     const [, setLoading] = useState<boolean>(true);
-
     const [selectedOptions, setSelectedOptions] = useState<OptionType[]>([]);
+    
   
     async function gravar(e: FormEvent) {
       e.preventDefault();
@@ -36,6 +34,7 @@ export function CreateTarefa() {
           'Content-Type': 'application/json',
         },
       };
+    
   
       try {
         const participantsArray = selectedOptions.map(option => option.value); // Extrai os valores dos participantes
@@ -86,7 +85,14 @@ export function CreateTarefa() {
 
     return(
         <div className="container">
-            <b>Criar reunião</b>
+            <div className="row">
+              <div className="col-md-12 d-flex justify-content-between align-items-center">
+                <div className={`${styles.titulo}`}>
+                  <h1>Nova Tarefa</h1>
+                </div>
+              </div>
+              <hr style={{ borderTop: '2px solid gray', width: '100%' }} />
+            </div>
 
             <form className="mt-4" onSubmit={gravar}>
                 <div className="form-group mt-4">
@@ -129,68 +135,63 @@ export function CreateTarefa() {
                       required
                     />
                 </div>
-
-                <div className="row mt-4">
-                    <div className="form-group col-md-6">
-                        <label htmlFor="inputData">Data</label>
-                        <input 
-                            type="checkbox" 
-                            className="form-control" 
-                            id="status" 
-                            name="status"
-                            checked={!!tarefa.status}
-                            onChange={(e) => setTarefa({ ...tarefa, status: e.target.checked })}
-                            required
-                        />
-                    </div>
-                    <div className="form-group col-md-6">
-                        <label htmlFor="inputHora">Hora</label>
-                        <input 
-                          type="time" 
-                          className="form-control" 
-                          id="inputHora" 
-                          name="hora_reuniao" 
-                          placeholder="Hora" 
-                          value={reunion.hora_reuniao || ''}
-                          onChange={(e) => setTarefa({ ...reunion, hora_reuniao: e.target.value })} 
-                          required
-                        />
-                    </div>
-                </div>   
-
-                <div className="row mt-4">
-                    <div className="form-group col-md-6">
-                        <label>Livro</label>
-                        <input 
-                          type="text" 
-                          className="form-control" 
-                          name="livro" 
-                          placeholder="Livro" 
-                          value={reunion.livro || ''}
-                          onChange={(e) => setTarefa({ ...reunion, livro: e.target.value })}
-                          maxLength={60}
-                        />
-                    </div>
-                    <div className="form-group col-md-6">
-                        <label>Autor   </label>
-                        <input 
-                          type="text" 
-                          className="form-control" 
-                          name="autor" 
-                          placeholder="autor" 
-                          value={reunion.autor || ''}
-                          onChange={(e) => setTarefa({ ...reunion, autor: e.target.value })}
-                          maxLength={60}
-                        />
-                    </div>
+                
+                <div className="form-group col-md-6">
+                    <label htmlFor="prazo">Prazo</label>
+                    <input 
+                        type="date" 
+                        className="form-control" 
+                        id="prazo" 
+                        name="prazo" 
+                        placeholder="Prazo" 
+                        value={tarefa.prazo || ''}
+                        onChange={(e) => setTarefa({ ...tarefa, prazo: e.target.value })} 
+                        required
+                    />
                 </div>
+
+                <div >
+                    <input 
+                        type="checkbox" 
+                        className="btn-check" 
+                        id="status" 
+                        autoComplete="off"
+                        name="status"
+                        checked={!!tarefa.status}
+                        onChange={(e) => setTarefa({ ...tarefa, status: e.target.checked })} />
+                    <label className="btn btn-outline-success" htmlFor="status">
+                        {tarefa.status ? 'Concluído' : 'Concluir'}
+                    </label>
+{/* 
+                 <div className="form-group mt-4 d-flex align-items-center">
+                    <span className="material-icons" style={{ marginRight: '8px' }}>
+                        {tarefa.status ? 'check_box' : 'check_box_outline_blank'}
+                    </span>
+                    <label htmlFor="status" style={{ marginRight: '8px' }}>
+                        {tarefa.status ? 'Concluído' : 'Concluir'}
+                    </label>
+                    <input
+                        type="checkbox"
+                        className="form-control"
+                        id="status"
+                        name="status"
+                        checked={!!tarefa.status}
+                        onChange={(e) => setTarefa({ ...tarefa, status: e.target.checked })}
+                        style={{ display: 'none' }}
+                    />
+                </div> */}
+
+
+                    
+                </div>
+                
 
                 <div className="form-group mt-4">         
                     <button type="submit" className="mt-2"> 
                       Salvar 
                     </button>
 
-                    <Link to={"/reunion"}>
+                    <Link to={"/"}>
                         <button type="button" className="mt-4">
                             Voltar
                         </button>
