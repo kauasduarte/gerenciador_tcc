@@ -6,6 +6,7 @@ import { LoginCriarTCC } from './LoginCriarTCC';
 import { LoginEntrarTCC } from './LoginEntrarTCC';
 import { LoginPesquisarTCC } from './LoginPesquisarTCC';
 import { LoginSolicitacao } from './LoginSolicitacao';
+
 import styles from './Login.module.css'
 
 export function RoutesLogin() {
@@ -25,6 +26,7 @@ export function RoutesLogin() {
                                 <Route path="/pesquisartcc" element={<LoginPesquisarTCC />} />
                                 <Route path="/entrartcc" element={<LoginEntrarTCC />} />
                                 <Route path="/solicitacao" element={<LoginSolicitacao />} />
+                                
                                  
                             </Routes>
                         </main>
