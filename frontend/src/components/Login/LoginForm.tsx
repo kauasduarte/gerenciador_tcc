@@ -43,7 +43,7 @@ export function LoginForm() {
           cpf: cadastro.cpf,
           birth: cadastro.birth,
           email: cadastro.email,          
-          phone_number: cadastro.phone_number,
+          // phone_number: cadastro.phone_number,
           password: cadastro.password,
           curso: cadastro.curso,
           instituicao: cadastro.instituicao,
@@ -78,8 +78,7 @@ export function LoginForm() {
         <>
         <div className={styles.conteudo}>
             <p className={styles.message}>
-                <span>Bem-vindo(a) ao </span>
-                <span className={styles.textDestaque}>Klubinho</span>
+                <span>Bem-vindo(a)</span>
             </p>
 
             <p>
@@ -176,7 +175,7 @@ export function LoginForm() {
                 onChange={(e) => setCadastro({...cadastro, email:e.target.value})}
                 required/>
           </div>
-          <div className="form-group">
+          {/* <div className="form-group">
             <label htmlFor="telInput">Telefone</label>
             <input 
                 name='phone_number'
@@ -187,7 +186,7 @@ export function LoginForm() {
                 className='form-control'
                 onChange={(e) => setCadastro({...cadastro, phone_number:e.target.value})}
                 required/>    
-          </div>
+          </div> */}
           <div className="form-group">
             <label htmlFor='passwordInput'>Senha</label>
             <input 
@@ -234,7 +233,7 @@ export function LoginForm() {
                 value={cadastro.departamento || ''}
                 className='form-control'
                 onChange={(e) => setCadastro({...cadastro, departamento:e.target.value})}
-                required/>
+                />
           </div> 
           <div className="form-group">
             <label htmlFor='matriculaInput'>Matrícula</label>
