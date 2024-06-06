@@ -40,7 +40,7 @@ export function Dashboard() {
     return (
         <>
           <div className="container">
-            <div className="row">
+            <header className="row">
               <div className="col-md-12 d-flex justify-content-between align-items-center">
                 <div className={`${styles.titulo}`}>
                   <h1>Tarefas</h1>
@@ -52,9 +52,92 @@ export function Dashboard() {
                 </div>
               </div>
               <hr style={{ borderTop: '2px solid gray', width: '100%' }} />
-            </div>
+            </header>
 
-            {loading ? (
+            <main className={`${styles.main}`}>
+              <div className={`${styles.column}`}>
+                  <h3>A fazer</h3>
+                  <div className={`${styles.taskCard}`}>
+                      <p className={`${styles.taskTitle}`}>Model Answer</p>
+                      <span className={`${styles.tag} ${styles.yellowTag}`}>A Fazer</span>
+                  </div>
+                  <div className={`${styles.taskCard}`}>
+                      <p className={`${styles.taskTitle}`}>Create calendar, chat and email app pages</p>
+                      <span className={`${styles.tag} ${styles.yellowTag}`}>A Fazer</span>
+                  </div>
+                  <div className={`${styles.taskCard}`}>
+                      <p className={`${styles.taskTitle}`}>Product Design, Figma, Sketch (Software), Prototype</p>
+                      <span className={`${styles.tag} ${styles.yellowTag}`}>A Fazer</span>
+                  </div>
+                  <div className={`${styles.taskCard}`}>
+                      <p className={`${styles.taskTitle}`}>Change email option process</p>
+                      <span className={`${styles.tag} ${styles.yellowTag}`}>A Fazer</span>
+                  </div>
+                  <div className={`${styles.taskCard}`}>
+                      <p className={`${styles.taskTitle}`}>Post launch reminder / Post list</p>
+                      <span className={`${styles.tag} ${styles.yellowTag}`}>A Fazer</span>
+                  </div>
+              </div>
+              <div className={`${styles.column}`}>
+                  <h3>Em processo</h3>
+                  <div className={`${styles.taskCard}`}>
+                      <p className={`${styles.taskTitle}`}>Model Answer</p>
+                      <span className={`${styles.tag} ${styles.redTag}`}>Em processo</span>
+                  </div>
+                  <div className={`${styles.taskCard}`}>
+                      <p className={`${styles.taskTitle}`}>Add authentication pages</p>
+                      <span className={`${styles.tag} ${styles.redTag}`}>Em processo</span>
+                  </div>
+                  <div className={`${styles.taskCard}`}>
+                      <p className={`${styles.taskTitle}`}>Profile Page Satructure</p>
+                      <span className={`${styles.tag} ${styles.redTag}`}>Em processo</span>
+                  </div>
+                  <div className={`${styles.taskCard}`}>
+                      <p className={`${styles.taskTitle}`}>Create calendar, chat and email app pages</p>
+                      <span className={`${styles.tag} ${styles.redTag}`}>Em processo</span>
+                  </div>
+              </div>
+
+              <div className={`${styles.column}`}>
+                  <h3>Em revisão</h3>
+                  <div className={`${styles.taskCard}`}>
+                      <p className={`${styles.taskTitle}`}>Model Answer</p>
+                      <span className={`${styles.tag} ${styles.purpleTag}`}>Em revisão</span>
+                  </div>
+                  <div className={`${styles.taskCard}`}>
+                      <p className={`${styles.taskTitle}`}>Model Answer</p>
+                      <span className={`${styles.tag} ${styles.purpleTag}`}>Em revisão</span>
+                  </div>
+              </div>
+
+              <div className={`${styles.column}`}>
+                  <h3>Concluído</h3>
+                  <div className={`${styles.taskCard}`}>
+                      <p className={`${styles.taskTitle}`}>Model Answer</p>
+                      <span className={`${styles.tag} ${styles.greenTag}`}>Concluído</span>
+                  </div>
+                  <div className={`${styles.taskCard}`}>
+                      <p className={`${styles.taskTitle}`}>Create calendar, chat and email app pages</p>
+                      <span className={`${styles.tag} ${styles.greenTag}`}>Concluído</span>
+                  </div>
+                  <div className={`${styles.taskCard}`}>
+                      <p className={`${styles.taskTitle}`}>Product Design, Figma, Sketch (Software), Prototype</p>
+                      <span className={`${styles.tag} ${styles.greenTag}`}>Concluído</span>
+                  </div>
+                  <div className={`${styles.taskCard}`}>
+                      <p className={`${styles.taskTitle}`}>Model Answer</p>
+                      <span className={`${styles.tag} ${styles.greenTag}`}>Concluído</span>
+                  </div>
+                  <div className={`${styles.taskCard}`}>
+                      <p className={`${styles.taskTitle}`}>Create calendar, chat and email app pages</p>
+                      <span className={`${styles.tag} ${styles.greenTag}`}>Concluído</span>
+                  </div>
+              </div>
+            </main>
+            
+            
+
+            {/* {loading ? (
                     <div>Carregando...</div>
                 ) : (
                     Object.keys(tarefasPorData).map(data => (
@@ -80,7 +163,7 @@ export function Dashboard() {
                             ))}
                         </div>
                     ))
-                )}
+                )} */}
 
 
 

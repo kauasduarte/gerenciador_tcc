@@ -63,3 +63,52 @@
   margin-bottom: 1rem;
   margin-top: 1rem;
 }
+
+.column {
+  flex: 1;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.taskCard {
+  background-color: #ffffff;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.taskTitle {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 2px 6px;
+  font-size: 12px;
+  border-radius: 3px;
+  margin-right: 5px;
+  
+}
+
+.yellowTag {
+  background-color: #ffcc00;
+}
+
+.greenTag {
+  background-color: #00cc99;
+}
+
+.redTag {
+  background-color: #ff6666;
+}
+
+.purpleTag {
+  background-color: #ae00ae;
+}
+
+.main {
+  display: flex;
+}
