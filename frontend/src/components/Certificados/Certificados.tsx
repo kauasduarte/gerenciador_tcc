@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from './Certificados.module.css';
+import image from '../../assets/certificado.jpg';
 
 export function Certificados() {
 
@@ -23,17 +24,17 @@ export function Certificados() {
             </div>
             <main className={`${styles.membros}`}>
             <section>
-              <img src="https://ideas.sybernews.com/wp-content/uploads/2020/03/certificate-of-excellence-template-free-download-with-free-certificate-of-excellence-template-scaled.jpg" alt="" />
+              <img src={`${image}`} alt="certificado" />
               <p>André Nery</p>
               <button>Baixar</button>
             </section>
             <section>
-              <img src="https://ideas.sybernews.com/wp-content/uploads/2020/03/certificate-of-excellence-template-free-download-with-free-certificate-of-excellence-template-scaled.jpg" alt="" />
+              <img src={`${image}`} alt="certificado" />
               <p>Kaua Duarte</p>
               <button>Baixar</button>
             </section>
             <section>
-              <img src="https://ideas.sybernews.com/wp-content/uploads/2020/03/certificate-of-excellence-template-free-download-with-free-certificate-of-excellence-template-scaled.jpg" alt="" />
+              <img src={`${image}`} alt="certificado" />
               <p>Thalita Bispo</p>
               <button>Baixar</button>
             </section>
