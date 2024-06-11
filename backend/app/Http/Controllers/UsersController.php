@@ -12,50 +12,49 @@ class UsersController extends Controller
 {
     public function register(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
-            'tipo_usuario' => 'required|string|in:aluno,orientador,banca,coordenador',
-            'cpf' => 'required|string|unique:users',
-            'birth' => 'required|date',
-            'curso' => 'required|string|max:255',
-            'instituicao' => 'required|string|max:255',
-            'departamento' => 'required|string|max:255',
-            'matricula' => 'required|string|unique:users',
-        ]);
+        $user = new User();
+        $user->name = $request->name;
+        $user->last_name = $request->last_name;
+        $user->tipo_usuario = $request->tipo_usuario;
+        $user->cpf = $request->cpf;
+        $user->birth = $request->birth;
+        $user->curso = $request->curso;
+        $user->instituicao = $request->instituicao;
+        $user->departamento = $request->departamento;
+        $user->matricula = $request->matricula;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
 
-        if ($validator->fails()) {
-            return response()->json($validator->errors(), 400);
-        }
+        $user->save();
 
-        $user = User::create([
-            'name' => $request->name,
-            'last_name' => $request->last_name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'tipo_usuario' => $request->tipo_usuario,
-            'cpf' => $request->cpf,
-            'birth' => $request->birth,
-            'curso' => $request->curso,
-            'instituicao' => $request->instituicao,
-            'departamento' => $request->departamento,
-            'matricula' => $request->matricula,
-        ]);
-
-        return response()->json(['message' => 'User registered successfully', 'user' => $user], 201);
+        return response()->json([
+            'user' => $user,
+            'message' => 'User created'
+        ], 201);
     }
 
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
-            $user = Auth::user();
-            return response()->json(['message' => 'Login successful', 'user' => $user], 200);
+        if (!Auth::attempt($credentials)) {
+            return response()->json(['message' => 'Unauthorized'], 401);
         }
 
-        return response()->json(['message' => 'Invalid email or password'], 401);
+        $user = User::where('email', $request->email)->first();
+
+        return response()->json([
+            'user' => $user,
+            'message' => 'User logged in'
+        ], 200);
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        return response()->json([
+            'message' => 'User logged out'
+        ], 200);
     }
 }
