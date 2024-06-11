@@ -29,6 +29,17 @@ class ProjetoController extends Controller
         $data = $request->all();
         return Projeto::where('id', $projeto_id)->update($data);
     }
+
+    public function updateNotaBancaNotaMedia(Request $request, $projeto_id)
+    {
+        $projeto = new Projeto();
+        $data = $projeto->find($projeto_id);
+        $data->nota_banca = $request->nota_banca;
+        $data->nota_media = $request->nota_media;
+        $data->save();
+
+        return response()->json($data, 200);
+    }
     
     public function getAllProjects()
     {

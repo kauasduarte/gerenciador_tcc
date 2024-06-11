@@ -9,13 +9,12 @@ class Tasks extends Model
 {
     use HasFactory;
     protected $fillable = [
-        "name",
-        "description",
-        "data_publicacao",
-        "data_entrega",
-        "projeto_id",
+        "titulo",
+        "descricao",
         "documento",
         "documento_nome",
-        "status"
+        "status",
+        "prazo",
+        "projeto_id"
     ];
 }

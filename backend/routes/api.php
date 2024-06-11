@@ -16,8 +16,12 @@ Route::post('/login', [UsersController::class, 'login']);
 
 // Rotas de task 
 Route::post('/tarefa/create', [TasksController::class,'createTask']);
-Route::get('/tarefa/getAllTasks/{projeto_id}', [TasksController::class,'getAllTasks']);
+Route::get('/tarefa/getTaskByid/{task_id}', [TasksController::class,'getTaskByid']);
 Route::delete('/tarefa/deleteTask/{task_id}', [TasksController::class,'deleteTask']);
+Route::put('/tarefa/updateTask/{task_id}', [TasksController::class,'updateTask']);
+Route::get('/tarefa/getAllTasksByProject/{projeto_id}', [TasksController::class,'getAllTasksByProject']);
+Route::get('/tarefa/getAllTasksByProjectAndStatus/{projeto_id}/{status}', [TasksController::class,'getAllTasksByProjectAndStatus']);
+Route::post('/tarefa/uploadDocumento/{task_id}', [TasksController::class,'uploadDocumento']);
 
 // Rotas do projeto
 Route::post('/projeto/create', [ProjetoController::class,'createProject']);
@@ -25,6 +29,7 @@ Route::get('/projeto/getProjetoByid/{projeto_id}', [ProjetoController::class,'ge
 Route::delete('/projeto/deleteProject/{projeto_id}', [ProjetoController::class,'deleteProject']);
 Route::put('/projeto/updateProject/{projeto_id}', [ProjetoController::class,'updateProject']);
 Route::get('/projeto/getAllProjects', [ProjetoController::class,'getAllProjects']);
+Route::put('/projeto/updateNotaBancaNotaMedia/{projeto_id}', [ProjetoController::class,'updateNotaBancaNotaMedia']);
 
 // Rotas de user_project
 Route::post('/user_project/create', [UserProjectController::class,'createProject']);
