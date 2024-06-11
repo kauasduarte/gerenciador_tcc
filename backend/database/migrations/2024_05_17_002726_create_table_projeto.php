@@ -12,9 +12,9 @@ return new class extends Migration
         Schema::create('projeto', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string('descricao');
-            $table->float('nota_banca');
-            $table->float('nota_media');
+            $table->string('descricao')->nullable();
+            $table->float('nota_banca')->nullable();
+            $table->float('nota_media')->nullable();
             $table->timestamps();
         });
     }
