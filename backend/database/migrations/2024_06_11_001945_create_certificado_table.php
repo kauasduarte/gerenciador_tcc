@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('titulo')->nullable();
             $table->date('data_conclusao')->nullable();
-            $table->foreignId('projeto_id')->constrained('projeto')->onDelete('cascade');
+            $table->foreignId('projeto_id')->constrained('projetos')->onDelete('cascade');
             $table->timestamps();
         });
     }

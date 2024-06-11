@@ -18,7 +18,7 @@ return new class extends Migration
             $table->boolean('status')->nullable(false);
             $table->date('data_publicacao');
             $table->date('data_entrega');
-            $table->foreignId('projeto_id')->constrained('projeto')->onDelete('cascade');
+            $table->foreignId('projeto_id')->constrained('projetos')->onDelete('cascade');
             $table->timestamps();
         });
     }
