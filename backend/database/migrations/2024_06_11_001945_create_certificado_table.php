@@ -6,21 +6,19 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-
     public function up(): void
     {
-        Schema::create('projeto', function (Blueprint $table) {
+        Schema::create('certificado', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
-            $table->string('descricao');
-            $table->float('nota_banca');
-            $table->float('nota_media');
+            $table->string('titulo')->nullable();
+            $table->date('data_conclusao')->nullable();
+            $table->foreignId('projeto_id')->constrained('projeto')->onDelete('cascade');
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('projeto');
+        Schema::dropIfExists('certificado');
     }
 };

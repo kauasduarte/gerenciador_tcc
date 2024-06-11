@@ -15,4 +15,14 @@ class Projeto extends Model
         "nota_banca",
         "nota_media",
     ];
+
+    public function tasks()
+    {
+        return $this->hasMany(Tasks::class);
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'user_projeto', 'projeto_id', 'user_id');
+    }
 }
