@@ -42,7 +42,7 @@ class UsersController extends Controller
         }
 
         $user = User::where('email', $request->email)->first();
-        $projetosIds = UserProject::where('user_id', $user->id)->value('projeto_id');
+        $projetosIds = UserProject::where('user_id', $user->id)->value('project_id');
 
         return response()->json([
             'user' => $user,

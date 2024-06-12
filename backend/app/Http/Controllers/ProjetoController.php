@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Projeto;
-use App\Http\Controllers\UserProjectController;
+use App\Models\User;
+use App\Models\UserProject;
 
 class ProjetoController extends Controller
 {
@@ -19,16 +20,14 @@ class ProjetoController extends Controller
         $projeto->user_id = $request->user_id;
         $projeto->save();
 
-        $userProject = new UserProjectController();
-        $userprojectRequest = new Request([
-            'user_id' => $projeto['user_id'],
-            'project_id' => $projeto['id']
-        ]);
-
-        $userProject->createProject($userprojectRequest);
+        $userProject = new UserProject();
+        $userProject->user_id = $request->user_id;
+        $userProject->project_id = $projeto->id;
+        $userProject->save();
 
         return response()->json([
-            'projeto' => $projeto
+            'projeto' => $projeto,
+            'userProject' => $userProject,
         ], 201);
     }
 
