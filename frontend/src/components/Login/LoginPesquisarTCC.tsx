@@ -33,7 +33,7 @@ export function LoginPesquisarTCC() {
             'http://127.0.0.1:8000/api/user_project/create',
             {
               user_id: usuario.user_id,
-              projeto_id: projeto.projeto_id,
+              project_id: projeto.projeto_id,
             },
             config
           );
