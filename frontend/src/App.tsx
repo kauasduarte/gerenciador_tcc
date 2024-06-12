@@ -9,12 +9,12 @@ function App() {
   // const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
 
   // useEffect(() => {
-  //   const token = Cookies.get('token');
   //   const user_id = Cookies.get('user_id');
-  //   const club_id = Cookies.get('club_id');
+  //   const projeto_id = Cookies.get('club_id');
+  //   const role = Cookies.get('role');
 
-  //   // Verificar se há um token, user_id e club_id válidos
-  //   const isLoggedIn = !!token && !!user_id && club_id !== null && club_id !== undefined;
+  //   // Verificar se há um token, user_id e projeto_id válidos
+  //   const isLoggedIn = !!role && !!user_id && projeto_id !== null && projeto_id !== undefined;
 
   //   setIsLoggedIn(isLoggedIn);
   // }, []);

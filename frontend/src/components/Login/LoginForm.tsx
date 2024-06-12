@@ -13,7 +13,6 @@ export function LoginForm() {
         cpf: '',
         birth: '', 
         email: '', 
-        phone_number: '', 
         password: '', 
         curso: '', 
         instituicao: '', 
@@ -43,7 +42,6 @@ export function LoginForm() {
           cpf: cadastro.cpf,
           birth: cadastro.birth,
           email: cadastro.email,          
-          // phone_number: cadastro.phone_number,
           password: cadastro.password,
           curso: cadastro.curso,
           instituicao: cadastro.instituicao,
@@ -175,18 +173,6 @@ export function LoginForm() {
                 onChange={(e) => setCadastro({...cadastro, email:e.target.value})}
                 required/>
           </div>
-          {/* <div className="form-group">
-            <label htmlFor="telInput">Telefone</label>
-            <input 
-                name='phone_number'
-                type='text'
-                id='telInput' 
-                placeholder='Nº de celular' 
-                value={cadastro.phone_number || ''}
-                className='form-control'
-                onChange={(e) => setCadastro({...cadastro, phone_number:e.target.value})}
-                required/>    
-          </div> */}
           <div className="form-group">
             <label htmlFor='passwordInput'>Senha</label>
             <input 

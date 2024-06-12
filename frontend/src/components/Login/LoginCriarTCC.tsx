@@ -29,10 +29,10 @@ export function LoginCriarTCC() {
 
     try {
       const response = await axios.post(
-        'http://127.0.0.1:8000/api/tcc/register',
+        'http://127.0.0.1:8000/api/projeto/create',
         {
-          name: cadastro.name,
-          desc_projeto: cadastro.desc_projeto,
+          nome: cadastro.name,
+          descricao: cadastro.desc_projeto,
           // user_id: user_id, // Adicione o userId ao corpo da solicitação
         },
         config
