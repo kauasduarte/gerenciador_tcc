@@ -2,30 +2,26 @@
     font-size: 1.5rem;
     margin-bottom: 1rem;
     margin-top: 1rem;
-  }
+}
 
-  body {
-    background-color: rgb(240, 240, 240);
-  }
-  
-  .membros {
-    display: flex;
-    align-items: flex-start
-  }
-  
-  section {
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    margin-right: 20px;
-  }
+.membros {
+  display: flex;
+  justify-content: flex-start;
+}
 
-  img {
-    width: 250px;
-  }
-  
-  p {
-    padding-top: 5px;
-    font-weight: bold;
-  }
+.card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  margin-right: 20px;
+}
+
+img {
+  width: 250px;
+}
+
+p {
+  padding-top: 5px;
+  font-weight: bold;
+}

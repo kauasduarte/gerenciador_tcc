@@ -48,8 +48,6 @@ export function CreateTarefa() {
             data_publicacao: tarefa.data_publicacao,
             prazo: tarefa.prazo,
             entrega: tarefa.entrega,
-            // club_id: club_id,
-            // user_id: user_id,
             participants: participantsArray,
             
           },
