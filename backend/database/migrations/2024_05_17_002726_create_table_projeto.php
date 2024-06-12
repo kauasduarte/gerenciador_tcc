@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('descricao')->nullable();
             $table->float('nota_banca')->nullable();
             $table->float('nota_media')->nullable();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

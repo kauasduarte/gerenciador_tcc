@@ -14,6 +14,7 @@ class Projeto extends Model
         "descricao",
         "nota_banca",
         "nota_media",
+        "user_id",
     ];
 
     public function tasks()

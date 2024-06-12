@@ -12,8 +12,12 @@ class UserProjectController extends Controller
 {
     public function createProject(Request $request)
     {
-        $data = $request->all();
-        return UserProject::create($data);
+        $userProject = new UserProject();
+        $userProject->user_id = $request->user_id;
+        $userProject->project_id = $request->project_id;
+        $userProject->save();
+
+        return response()->json($userProject, 201);
     }
 
     public function getAllProjects($user_id)

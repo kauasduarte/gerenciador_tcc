@@ -14,6 +14,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/register', [UsersController::class, 'register']);
 Route::post('/login', [UsersController::class, 'login']);
 
+// Rotas de user
+Route::get('/user/getUser/{user_id}', [UsersController::class,'getUserById']);
+
 // Rotas de task 
 Route::post('/tarefa/create', [TasksController::class,'createTask']);
 Route::get('/tarefa/getTaskByid/{task_id}', [TasksController::class,'getTaskByid']);

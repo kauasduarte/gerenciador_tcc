@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use App\Models\UserProject;
 
 class UsersController extends Controller
 {
@@ -41,9 +42,11 @@ class UsersController extends Controller
         }
 
         $user = User::where('email', $request->email)->first();
+        $projetosIds = UserProject::where('user_id', $user->id)->value('projeto_id');
 
         return response()->json([
             'user' => $user,
+            'projeto_id' => $projetosIds,
             'message' => 'User logged in'
         ], 200);
     }
@@ -55,5 +58,10 @@ class UsersController extends Controller
         return response()->json([
             'message' => 'User logged out'
         ], 200);
+    }
+
+    public function getUserById($user_id)
+    {
+        return User::where('id', $user_id)->get();
     }
 }

@@ -5,13 +5,31 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Projeto;
+use App\Http\Controllers\UserProjectController;
 
 class ProjetoController extends Controller
 {
     public function createProject(Request $request)
     {
-        $data = $request->all();
-        return Projeto::create($data);
+        $projeto = new Projeto();
+        $projeto->nome = $request->nome;
+        $projeto->descricao = $request->descricao;
+        $projeto->nota_banca = $request->nota_banca;
+        $projeto->nota_media = $request->nota_media;
+        $projeto->user_id = $request->user_id;
+        $projeto->save();
+
+        $userProject = new UserProjectController();
+        $userprojectRequest = new Request([
+            'user_id' => $projeto['user_id'],
+            'project_id' => $projeto['id']
+        ]);
+
+        $userProject->createProject($userprojectRequest);
+
+        return response()->json([
+            'projeto' => $projeto
+        ], 201);
     }
 
    public function getProjetoByid($projeto_id)
