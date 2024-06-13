@@ -40,7 +40,7 @@ export function Certificados() {
                         {(role === 'orientador' || role === 'coordenador') && (
                             <div className={styles.inputGroup}>
                                 <h5>Nota Final:</h5>
-                                <input type="text" id="nota" placeholder="Nota"/>
+                                <input type="text" id="nota" placeholder=""/>
                                 <button onClick={enviarNota}>Enviar Nota</button>
                             </div>
                         )}

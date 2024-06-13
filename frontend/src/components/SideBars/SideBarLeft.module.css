@@ -37,7 +37,6 @@
 
 .mainContainer {
   display: flex;
-  height: 100vh; /* Ajusta a altura para ocupar 100% da altura da viewport */
 }
 
 .sideBarLeft {
@@ -46,7 +45,7 @@
   align-items: center;
   background-color: var(--red);
   height: 100vh;
-  }
+}
 
 .content {
   flex: 1; /* Faz o conteúdo principal ocupar o restante da largura */
@@ -56,15 +55,19 @@
 
 @media screen and (max-width: 767px) {
   .userProfile {
-      margin-top: 1rem;
+    margin-top: 1rem;
   }
   .sideBarLeft {
-      width: 100%; /* Ajusta a largura para 100% da tela em dispositivos menores */
-      margin-left: 0; /* Remove a margem esquerda */
-      padding-left: 1rem; /* Adiciona um padding à esquerda */
+    width: 100%; /* Ajusta a largura para 100% da tela em dispositivos menores */
+    height: auto; /* Ajusta a altura para auto em dispositivos menores */
+    margin-left: 0; /* Remove a margem esquerda */
+    padding-left: 1rem; /* Adiciona um padding à esquerda */
+    flex-direction: row; /* Ajusta a direção do flex para row */
+    justify-content: space-between; /* Adiciona espaço entre os itens */
   }
   .content {
-      margin-top: 1rem; /* Adiciona uma margem superior ao conteúdo em dispositivos menores */
+    margin-top: 1rem; /* Adiciona uma margem superior ao conteúdo em dispositivos menores */
+    width: 100%; /* Garante que o conteúdo ocupe a largura total */
   }
 }
 
