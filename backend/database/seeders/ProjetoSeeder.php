@@ -11,21 +11,21 @@ class ProjetoSeeder extends Seeder
     public function run(): void
     {
         Projeto::createOrFirst([
-            "nome" => "Projeto 1",
-            "descricao" => "Descrição do projeto 1",
-            "user_id" => 1,
+            "nome" => "Klubinhos",
+            "descricao" => "Rede Social de clube de leitura",
+            "user_id" => 5,
         ]);
 
         Projeto::createOrFirst([
-            "nome" => "Projeto 2",
-            "descricao" => "Descrição do projeto 2",
-            "user_id" => 2,
+            "nome" => "Procafeinação",
+            "descricao" => "Procrastinação e café",
+            "user_id" => 5,
         ]);
 
         Projeto::createOrFirst([
-            "nome" => "Projeto 3",
-            "descricao" => "Descrição do projeto 3",
-            "user_id" => 3,
+            "nome" => "FatecC",
+            "descricao" => "Gestão de TCC da FATEC",
+            "user_id" => 6,
         ]);
     }
 }
