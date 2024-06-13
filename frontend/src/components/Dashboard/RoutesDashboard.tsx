@@ -4,7 +4,6 @@ import { SideBarLeft } from '../SideBars/SideBarLeft';
 
 import { Dashboard } from './Dashboard';
 import { Membros } from '../Membros/Membros';
-import { Avaliacao } from '../Avaliacao/Avaliacao';
 import { Certificados } from '../Certificados/Certificados';
 import styles from '../SideBars/SideBarLeft.module.css';
 import { CreateTarefa } from '../Tarefas/CriarTarefas'
@@ -66,7 +65,6 @@ export function RoutesDashboard() {
                                     <main>
                                         <Routes>
                                             <Route path="/" element={<Dashboard />} />
-                                            <Route path="/avaliacao" element={<Avaliacao />} />
                                             <Route path="/membros" element={<Membros />} />
                                             <Route path="/certificados" element={<Certificados />} />
                                             <Route path='/criartarefa' element={<CreateTarefa />} />
