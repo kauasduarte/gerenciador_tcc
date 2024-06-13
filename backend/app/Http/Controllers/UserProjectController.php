@@ -46,4 +46,25 @@ class UserProjectController extends Controller
 
         return response()->json(['error' => 'Project not found'], 404);
     }
+
+    public function getAllUsersDataByProjectId($projeto_id)
+    {
+        $userProjects = UserProject::where('project_id', $projeto_id)->get();
+
+        $usersData = [];
+
+        foreach ($userProjects as $userProject) {
+            $userData = User::find($userProject->user_id);
+
+            if ($userData) {
+                $usersData[] = [
+                    'user_id' => $userData->id,
+                    'name' => $userData->name,
+                    'tipo_usuario' => $userData->tipo_usuario,
+                ];
+            }
+        }
+
+        return response()->json($usersData, 200);
+    }
 }
