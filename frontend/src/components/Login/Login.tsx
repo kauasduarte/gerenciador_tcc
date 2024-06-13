@@ -31,27 +31,27 @@ export function Login() {
         config
       );
 
-      const {user, projeto} = response.data;
+      const {user, projeto_id} = response.data;
 
       // Armazene o id do usuário no cookie
       Cookies.set('user_id', user.id, { expires: 7 });
-      Cookies.set('tipo_usuario', user.tipo_usuario, { expires: 7 });
+      Cookies.set('role', user.tipo_usuario, { expires: 7 });
 
-      // Armazene o id do clube no cookie, se club_id não for nulo
-      // if (projeto.id !== null && projeto.id !== undefined) {
-      //   Cookies.set('projeto_id', projeto.id, { expires: 7 });
-      // }
+      //Armazene o id do tcc no cookie, se projeto_id não for nulo
+      if (projeto_id !== null && projeto_id !== undefined) {
+        Cookies.set('projeto_id', projeto_id, { expires: 7 });
+      }
 
-      // Verificar club_id após o login
-      // if (!projeto.id || projeto.id === 'null' || projeto.id === 'undefined') {
-      //   navigate('/bemvindo');
-      // } else {
-      //   setStatus('Login feito com sucesso');
-      //   setLogin({});
+      //Verificar projeto_id após o login
+      if (!projeto_id || projeto_id === 'null' || projeto_id === 'undefined') {
+        navigate('/bemvindo');
+      } else {
+        setStatus('Login feito com sucesso');
+        setLogin({});
 
-      //   //Atualiza a pagina para o App.tsx verificar a presença dos cookies
-      //   window.location.reload()
-      // }
+        //Atualiza a pagina para o App.tsx verificar a presença dos cookies
+        window.location.reload()
+      }
 
     } catch (error) {
       setStatus(`Falha: ${error}`);

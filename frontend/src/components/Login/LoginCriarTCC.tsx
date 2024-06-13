@@ -33,7 +33,7 @@ export function LoginCriarTCC() {
         {
           nome: cadastro.name,
           descricao: cadastro.desc_projeto,
-          // user_id: user_id, // Adicione o userId ao corpo da solicitação
+          user_id: user_id, 
         },
         config
       );
