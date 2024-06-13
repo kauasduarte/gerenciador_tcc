@@ -4,7 +4,7 @@
     margin-top: 1rem;
 }
 
-.membros {
+.certificados {
   display: flex;
   justify-content: flex-start;
 }
@@ -21,7 +21,17 @@ img {
   width: 250px;
 }
 
-p {
+.nomes {
   padding-top: 5px;
   font-weight: bold;
+}
+
+.headerButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input {
+  width: 50px;
 }

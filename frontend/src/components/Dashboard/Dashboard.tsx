@@ -84,7 +84,7 @@ export function Dashboard() {
         }
     }
 
-    function handleCardClick(task) {
+    function handleCardClick(task: Dashboard) {
         setSelectedTask(task);
     }
 
@@ -93,7 +93,7 @@ export function Dashboard() {
             <div className="container">
                 <header className="row">
                     <div className="col-md-12 d-flex justify-content-between align-items-center">
-                        <div className={`${styles.titulo}`}>
+                        <div className={styles.titulo}>
                             <h1>Tarefas</h1>
                         </div>
                         <div>
@@ -104,94 +104,94 @@ export function Dashboard() {
                     </div>
                     <hr style={{ borderTop: '2px solid gray', width: '100%' }} />
                 </header>
-               
-                <main className={`${styles.main}`}>
-                    <div className={`${styles.column}`}>
+                
+                <main className={styles.main}>
+                    <div className={styles.column}>
                         <h3>A fazer</h3>
                         {editDashboard.map((editDashboards) => (
                             editDashboards.status === 'todo' && (
                                 <div 
-                                    className={` ${styles.taskCard}`} 
+                                    className={styles.taskCard} 
                                     key={editDashboards.id} 
                                     data-bs-toggle="modal" 
                                     data-bs-target="#staticBackdrop"
                                     onClick={() => handleCardClick(editDashboards)}
                                 >
                                     <div>
-                                        <p className={`${styles.taskTitle}`}>{editDashboards.titulo}</p>
+                                        <p className={styles.taskTitle}>{editDashboards.titulo}</p>
                                         <span className={`${styles.tag} ${styles.yellowTag}`}>A Fazer</span>
                                     </div>
                                     <a href="">
-                                        <img src={`${icon}`} alt="" className={`${styles.icon}`}/>
+                                        <img src={icon} alt="" className={styles.icon} />
                                     </a>
                                 </div>
                             )
                         ))}
                     </div>
                     
-                    <div className={`${styles.column}`}>
+                    <div className={styles.column}>
                         <h3>Em processo</h3>
                         {editDashboard.map((editDashboards) => (
                             editDashboards.status === 'doing' && (
                                 <div 
-                                    className={`${styles.taskCard}`} 
+                                    className={styles.taskCard} 
                                     key={editDashboards.id}
                                     data-bs-toggle="modal" 
                                     data-bs-target="#staticBackdrop"
                                     onClick={() => handleCardClick(editDashboards)}
                                 >
                                     <div>
-                                        <p className={`${styles.taskTitle}`}>{editDashboards.titulo}</p>
+                                        <p className={styles.taskTitle}>{editDashboards.titulo}</p>
                                         <span className={`${styles.tag} ${styles.redTag}`}>Em processo</span>
                                     </div>
                                     <a href="">
-                                        <img src={`${icon}`} alt="" className={`${styles.icon}`}/>
+                                        <img src={icon} alt="" className={styles.icon} />
                                     </a>
                                 </div>
                             )
                         ))}
                     </div>
 
-                    <div className={`${styles.column}`}>
+                    <div className={styles.column}>
                         <h3>Em revisão</h3>
                         {editDashboard.map((editDashboards) => (
                             editDashboards.status === 'review' && (
                                 <div 
-                                    className={`${styles.taskCard}`} 
+                                    className={styles.taskCard} 
                                     key={editDashboards.id}
                                     data-bs-toggle="modal" 
                                     data-bs-target="#staticBackdrop"
                                     onClick={() => handleCardClick(editDashboards)}
                                 >
                                     <div>
-                                        <p className={`${styles.taskTitle}`}>{editDashboards.titulo}</p>
+                                        <p className={styles.taskTitle}>{editDashboards.titulo}</p>
                                         <span className={`${styles.tag} ${styles.purpleTag}`}>Em revisão</span>
                                     </div>
                                     <a href="">
-                                        <img src={`${icon}`} alt="" className={`${styles.icon}`}/>
+                                        <img src={icon} alt="" className={styles.icon} />
                                     </a>
                                 </div>
                             )
                         ))}
                     </div>
 
-                    <div className={`${styles.column}`}>
+                    <div className={styles.column}>
                         <h3>Concluído</h3>
                         {editDashboard.map((editDashboards) => (
                             editDashboards.status === 'done' && (
                                 <div 
-                                    className={`${styles.taskCard}`} 
+                                    className={styles.taskCard} 
                                     key={editDashboards.id}
                                     data-bs-toggle="modal" 
                                     data-bs-target="#staticBackdrop"
                                     onClick={() => handleCardClick(editDashboards)}
                                 >
                                     <div>
-                                        <p className={`${styles.taskTitle}`}>{editDashboards.titulo}</p>
+                                        <p className={styles.taskTitle}>{editDashboards.titulo}</p>
                                         <span className={`${styles.tag} ${styles.greenTag}`}>Concluído</span>
                                     </div>
                                     <a href="">
-                                        <img src={`${icon}`} alt="" className={`${styles.icon}`}/>
+                                        <img src={icon} alt="" className={styles.icon} />
                                     </a>
                                 </div>
                             )
@@ -245,13 +245,12 @@ export function Dashboard() {
                                                 className="form-control" 
                                                 name="documento" 
                                                 placeholder=""
-                                                onChange={(e) => setSelectedTask({ ...selectedTask, documento: e.target.files[0], documento_nome: e.target.files[0].name })}
+                                                onChange={(e) => setSelectedTask({ ...selectedTask, documento: e.target.files?.[0] || selectedTask.documento, documento_nome: e.target.files?.[0]?.name || selectedTask.documento_nome })}
                                             />
-
                                         </div>
 
                                         <div className="form-group mt-4">
-                                            <div className="form-floating">
+                                        <div className="form-floating">
                                                 <select 
                                                     className="form-select" 
                                                     id="floatingSelect" 

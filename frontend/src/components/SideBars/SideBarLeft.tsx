@@ -88,12 +88,7 @@ export function SideBarLeft() {
                                     <span className='p-2'>Membros</span>
                                 </Link>
                             </li>
-                            <li className={`nav-item ${styles.menuItem}`}>
-                                <Link className='nav-link d-flex align-items-center' to="/avaliacao">
-                                    <span className="material-symbols-outlined">fact_check</span>
-                                    <span className='p-2'>Avaliação</span>
-                                </Link>
-                            </li>
+
                             <li className={`nav-item ${styles.menuItem}`}>
                                 <Link className='nav-link d-flex align-items-center' to="/certificados">
                                     <span className="material-symbols-outlined">license</span>
