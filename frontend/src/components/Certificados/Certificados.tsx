@@ -11,7 +11,9 @@ export function Certificados() {
                 <div className={`${styles.titulo}`}>
                   <h1>Certificados</h1>
                 </div>
-                <div>
+                <div className={`${styles.headerButtons}`}>
+                  Nota Fiscal:
+                  <input type="text" name="" id="" placeholder="nota"/>
                   <Link className="nav-link" to={"/certificados"}>
                     <button>Gerar certificados</button>
                   </Link>
@@ -19,20 +21,20 @@ export function Certificados() {
               </div>
               <hr style={{ borderTop: '2px solid gray', width: '100%' }} />
             </div>
-            <main className={`${styles.membros}`}>
+            <main className={`${styles.certificados}`}>
               <section>
                 <img src={`${image}`} alt="certificado" />
-                <p>André Nery</p>
+                <p className={`${styles.nomes}`}>André Nery</p>
                 <button>Baixar</button>
               </section>
               <section>
                 <img src={`${image}`} alt="certificado" />
-                <p>Kaua Duarte</p>
+                <p className={`${styles.nomes}`}>Kaua Duarte</p>
                 <button>Baixar</button>
               </section>
               <section>
                 <img src={`${image}`} alt="certificado" />
-                <p>Thalita Bispo</p>
+                <p className={`${styles.nomes}`}>Thalita Bispo</p>
                 <button>Baixar</button>
               </section>
             </main>

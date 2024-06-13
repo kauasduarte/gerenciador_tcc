@@ -96,7 +96,7 @@ export function Dashboard() {
                         </div>
                         <div className={`${styles.taskCard}`}>
                             <div>
-                                <p className={`${styles.taskTitle}`}>Post launch reminder / Post list</p>
+                                <p className={`${styles.taskTitle}`}>Agendar banca</p>
                                 <span className={`${styles.tag} ${styles.yellowTag}`}>A Fazer</span>
                             </div>
                             <a href="">
