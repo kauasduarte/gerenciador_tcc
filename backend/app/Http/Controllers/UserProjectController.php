@@ -67,4 +67,9 @@ class UserProjectController extends Controller
 
         return response()->json($usersData, 200);
     }
+
+    public function deleteUserIdFromProject($user_id, $projeto_id)
+    {
+        return UserProject::where('user_id', $user_id)->where('project_id', $projeto_id)->delete();
+    }
 }

@@ -42,3 +42,4 @@ Route::get('/user_project/getProjectsByUser/{user_id}', [UserProjectController::
 Route::get('/user_project/getUsersByProject/{projeto_id}', [UserProjectController::class,'getUsersByProject']);
 Route::get('/user_project/getAllDatas', [UserProjectController::class,'getAllDatas']);
 Route::get('/user_project/getProjectWithUsers/{projeto_id}', [UserProjectController::class,'getAllUsersDataByProjectId']);
+Route::delete("/user_project/deleteUser/{user_id}/{projeto_id}", [UserProjectController::class, "deleteUserIdFromProject"]);
