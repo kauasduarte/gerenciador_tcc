@@ -247,6 +247,7 @@ export function Dashboard() {
                                                 placeholder=""
                                                 onChange={(e) => setSelectedTask({ ...selectedTask, documento: e.target.files[0], documento_nome: e.target.files[0].name })}
                                             />
+
                                         </div>
 
                                         <div className="form-group mt-4">
