@@ -1,85 +1,62 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from "axios";
-import Cookies from 'js-cookie';
-import { FormEvent, OptionType } from '../types';
-
+import { FormEvent } from '../types';
 import styles from '../Dashboard/Dashboard.module.css';
+import Cookies from 'js-cookie';
 
 interface Tarefa {
   titulo?: string;
   descricao?: string;
-  documento?: string;
-  status?: boolean;
-  data_publicacao?: string;
+  documento?: File | null;
+  documento_nome?: string | null;
   prazo?: string;
-  entrega?: string;
+  projeto_id?: string;
 }
 
 export function CreateTarefa() {
-    //salvar
-    const [tarefa, setTarefa] = useState<Tarefa>({});
-    const [, setStatus] = useState<string>('');    
-    // const user_id = Cookies.get('user_id');
-    // const club_id = Cookies.get('club_id');
-    const [, setLoading] = useState<boolean>(true);
-    const [selectedOptions, setSelectedOptions] = useState<OptionType[]>([]);
+    const [tarefa, setTarefa] = useState<Tarefa>({ documento: null, documento_nome: null });
+    const [, setStatus] = useState<string>('');   
     
-  
+    const projeto_id = Cookies.get('projeto_id');
+    
     async function gravar(e: FormEvent) {
       e.preventDefault();
   
-      const config = {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      };
-    
+      const formData = new FormData();
+      formData.append('titulo', tarefa.titulo || '');
+      formData.append('descricao', tarefa.descricao || '');
+      formData.append('documento', tarefa.documento || '');
+      formData.append('documento_nome', tarefa.documento_nome || '');
+      formData.append('prazo', tarefa.prazo || '');
+      formData.append('projeto_id', projeto_id || '');
   
       try {
-        const participantsArray = selectedOptions.map(option => option.value); // Extrai os valores dos participantes
         await axios.post(
           'http://127.0.0.1:8000/api/tarefa/create',
-          {
-            titulo: tarefa.titulo,
-            descricao: tarefa.descricao,
-            documento: tarefa.documento,
-            status: tarefa.status,
-            data_publicacao: tarefa.data_publicacao,
-            prazo: tarefa.prazo,
-            entrega: tarefa.entrega,
-            participants: participantsArray,
-            
-          },
-          config
+          formData
         );
   
         setStatus('Tarefa cadastrada com sucesso!');
         alert('Tarefa cadastrada com sucesso!');
         setTarefa({});
-        setSelectedOptions([]);
       } catch (error) {
         setStatus(`Falha: ${error}`);
         alert(`Falha: ${error}`);
         console.log(error);
       }
-    }
+    } 
 
-    // useEffect(() => {
-    //     async function Profile() {
-    //       try {
-    //         const response = await axios.get(`http://127.0.0.1:8000/api/clubIntegrantes/getClubIntegrantesWithUser/${club_id}`);
-    //         setIntegrantes(response.data);
-    //         setLoading(false);
-    //       } catch (error) {
-    //         console.error(error);
-    //       }
-    //     }
-    
-    //     Profile();
-    //   }, [club_id]);
-
-    //select    
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const file = e.target.files?.[0];
+      if (file) {
+        setTarefa({
+          ...tarefa,
+          documento: file,
+          documento_nome: file.name
+        });
+      }
+    };
 
     return(
         <div className="container">
@@ -127,14 +104,11 @@ export function CreateTarefa() {
                       type="file" 
                       className="form-control" 
                       name="documento" 
-                      placeholder="" 
-                      value={tarefa.documento || ''}
-                      onChange={(e) => setTarefa({ ...tarefa, documento: e.target.value })} 
-                      required
+                      onChange={handleChange} 
                     />
                 </div>
                 
-                <div className="form-group col-md-6">
+                <div className="form-group col-md-6 mt-4">
                     <label htmlFor="prazo">Prazo</label>
                     <input 
                         type="date" 
@@ -148,42 +122,6 @@ export function CreateTarefa() {
                     />
                 </div>
 
-                <div >
-                    <input 
-                        type="checkbox" 
-                        className="btn-check" 
-                        id="status" 
-                        autoComplete="off"
-                        name="status"
-                        checked={!!tarefa.status}
-                        onChange={(e) => setTarefa({ ...tarefa, status: e.target.checked })} />
-                    <label className="btn btn-outline-success" htmlFor="status">
-                        {tarefa.status ? 'Concluído' : 'Concluir'}
-                    </label>
-{/* 
-                 <div className="form-group mt-4 d-flex align-items-center">
-                    <span className="material-icons" style={{ marginRight: '8px' }}>
-                        {tarefa.status ? 'check_box' : 'check_box_outline_blank'}
-                    </span>
-                    <label htmlFor="status" style={{ marginRight: '8px' }}>
-                        {tarefa.status ? 'Concluído' : 'Concluir'}
-                    </label>
-                    <input
-                        type="checkbox"
-                        className="form-control"
-                        id="status"
-                        name="status"
-                        checked={!!tarefa.status}
-                        onChange={(e) => setTarefa({ ...tarefa, status: e.target.checked })}
-                        style={{ display: 'none' }}
-                    />
-                </div> */}
-
-
-                    
-                </div>
-                
-
                 <div className="form-group mt-4">         
                     <button type="submit" className="mt-2"> 
                       Salvar 
@@ -195,7 +133,6 @@ export function CreateTarefa() {
                         </button>
                     </Link>
                 </div>
-
             </form>
         </div>
     )
