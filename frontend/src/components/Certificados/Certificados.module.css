@@ -35,3 +35,19 @@ img {
 input {
   width: 50px;
 }
+
+/* Certificados.module.css */
+.inputGroup {
+  display: flex;
+  align-items: center; /* Centraliza verticalmente todos os elementos no grupo */
+}
+
+.inputGroup input {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.inputGroup h5 {
+  margin: 0; /* Remove margens extras do <h5> */
+}
+

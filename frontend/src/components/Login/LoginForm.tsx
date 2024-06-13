@@ -102,7 +102,7 @@ export function LoginForm() {
                 <option value="">Selecione...</option>
                 <option value='aluno' label="Aluno">Aluno</option>
                 <option value='orientador' label="Orientador">Orientador</option>
-                <option value="banca" label='Banca Avaliadora'>Banca Avaliadora</option>
+                {/* <option value="banca" label='Banca Avaliadora'>Banca Avaliadora</option> */}
                 <option value='coordenador' label="Coordenador">Coordenador</option>
             </select>
         </div>
