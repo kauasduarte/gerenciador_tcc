@@ -33,9 +33,6 @@ function App() {
     </>
   );
 
-  // return (
-  //   <RoutesLogin />
-  // )
 }
 
 export default App;
