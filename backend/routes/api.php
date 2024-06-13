@@ -32,7 +32,7 @@ Route::get('/projeto/getProjetoByid/{projeto_id}', [ProjetoController::class,'ge
 Route::delete('/projeto/deleteProject/{projeto_id}', [ProjetoController::class,'deleteProject']);
 Route::put('/projeto/updateProject/{projeto_id}', [ProjetoController::class,'updateProject']);
 Route::get('/projeto/getAllProjects', [ProjetoController::class,'getAllProjects']);
-Route::put('/projeto/updateNotaBancaNotaMedia/{projeto_id}', [ProjetoController::class,'updateNotaBancaNotaMedia']);
+Route::put('/projeto/updateaNotaMedia/{projeto_id}', [ProjetoController::class,'updateaNotaMedia']);
 
 // Rotas de user_project
 Route::post('/user_project/create', [UserProjectController::class,'createProject']);
