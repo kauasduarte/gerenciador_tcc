@@ -33,30 +33,6 @@
     overflow: auto; /* overflow: auto Adiciona uma barra de rolagem horizontal se necessário / hidden esconde o conteudo que ultrapassa*/
 }
 
-  /* .login2 {
-    width: 500px;
-    height: 500px;
-    background-color: var(--white);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: auto;
-    max-width: 70%;
-    max-height: 80%;
-    overflow: auto;
-    padding: 1em 2em;
-    border-bottom: 2px solid #ccc;
-    border-radius: 20px;
-    box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.4);
-    display: table;
-  }
-  
-  .conteudo2 {
-    display: table-cell;
-    vertical-align: middle;
-  } */
-
 
 .conteudo {
     display: flex;

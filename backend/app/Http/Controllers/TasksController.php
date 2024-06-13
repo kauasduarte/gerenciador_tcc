@@ -45,7 +45,6 @@ class TasksController extends Controller
         return Tasks::where('projeto_id', $projeto_id)->get();
     }
 
-    //get all tasks by projeto_id and status
     public function getAllTasksByProjectAndStatus($projeto_id, $status)
     {
         return Tasks::where('projeto_id', $projeto_id)->where('status', $status)->get();

@@ -20,3 +20,12 @@ section {
   text-align: center;
   margin-right: 20px;
 }
+
+.align-left {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}
