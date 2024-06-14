@@ -13,7 +13,7 @@ export function Membros() {
     async function fetchMembers() {
       try {
         const response = await axios.get(`http://127.0.0.1:8000/api/user_project/getProjectWithUsers/${projeto_id}`);
-        setMembers(response.data); // Assume-se que a resposta é um array diretamente
+        setMembers(response.data); 
       } catch (error) {
         console.error('Erro ao buscar membros:', error);
       }
@@ -44,7 +44,7 @@ export function Membros() {
           try {
             const response = await axios.delete(`http://127.0.0.1:8000/api/user_project/deleteUser/${member.user_id}/${projeto_id}`);
             console.log(response.data);
-            // You might want to update the members list here
+            window.location.reload()
           } catch (error) {
             console.error(error);
           }

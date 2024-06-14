@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link , useNavigate} from "react-router-dom";
 import { useState } from 'react';
 import axios from "axios";
 import { FormEvent } from '../types';
@@ -17,6 +17,7 @@ interface Tarefa {
 export function CreateTarefa() {
     const [tarefa, setTarefa] = useState<Tarefa>({ documento: null, documento_nome: null });
     const [, setStatus] = useState<string>('');   
+    const navigate = useNavigate();
     
     const projeto_id = Cookies.get('projeto_id');
     
@@ -40,6 +41,9 @@ export function CreateTarefa() {
         setStatus('Tarefa cadastrada com sucesso!');
         alert('Tarefa cadastrada com sucesso!');
         setTarefa({});
+
+        navigate('/');
+
       } catch (error) {
         setStatus(`Falha: ${error}`);
         alert(`Falha: ${error}`);
